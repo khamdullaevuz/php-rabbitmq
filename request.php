@@ -7,10 +7,10 @@ require 'vendor/autoload.php';
 try {
     $rabbit = new Rabbit();
 
-    $result = $rabbit->rpcPublish(method: 'getUser',
+    $result = $rabbit->request(method: 'getUser',
             params: [
-                    'id' => 4
-            ]);
+                    'id' => 5
+            ])->getResult();
     dd($result);
 } catch (Exception $e) {
     echo "Error: " . $e->getMessage() . "\n";

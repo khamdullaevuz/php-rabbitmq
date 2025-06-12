@@ -2,19 +2,20 @@
 
 namespace services;
 
+use services\dto\UserCreateDto;
+use services\dto\UserGetDto;
+
 class UserService
 {
-    public function create(string $email, string $name): void
+    public function create(UserCreateDto $object): void
     {
-        throw new \Exception('test');
-        echo "User created with email: $email and name: $name\n";
+        echo "User created with email: $object->email and name: $object->name\n";
     }
 
-    public function getUser(string $id): array
+    public function getUser(UserGetDto $object): array
     {
-        throw new \Exception('test');
         return [
-            'id' => $id,
+            'id' => $object->id,
             'name' => 'John Doe',
             'email' => 'test@mail.com'
         ];
